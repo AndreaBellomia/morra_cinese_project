@@ -1,0 +1,52 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block title %}New Game{% endblock %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/game/homepage.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="background-container"></div>
+
+<div class="container">
+    <h1>Sasso, Carta o Forbici</h1>
+    <p>Seleziona una delle 3 opzioni</p>
+    <p>e Prova a Vincere !!!</p>
+
+    <div class="rules">
+        <h2>Combinazioni Vincenti</h2>
+        <p>Sasso vince su Forbici</p>
+        <p>Carta vince su Sasso</p>
+        <p>Forbici vincono su Carta</p>
+    </div>
+
+    <div class="container-match-tierlist">
+        <h1>Top Game!</h1>
+
+        <div class="scroll-list">
+            {% for sezione in lista_sezioni %}
+                <div class="card-game">
+                    <div class="row">
+                        <h3>{{ sezione.user_name }}</h3>
+                        <p>{{ sezione.game_date|date:'d-m-Y' }}</p>
+                    </div>
+                    <div class="row">
+                        <h4>Win: {{ sezione.match_win }}</h4>
+                        <h4>Lost: {{ sezione.match_lost }}</h4>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container-btn">
+        <p>Gioca una Partita!</p>
+        <button>Gioca !</button>
+    </div>
+    
+</div>
+
+{% endblock %}
