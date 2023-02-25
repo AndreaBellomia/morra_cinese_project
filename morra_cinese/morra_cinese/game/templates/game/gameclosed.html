@@ -1,0 +1,23 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block title %}Game Closed{% endblock %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/game/close.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="main-container">
+    <div class="title-cotainer">
+        <h1>La partita che stai cercando è terminata</h1>
+    </div>
+    
+    <div class="button-container">
+        <a href="{% url 'homepage'%}">Nuova Partita</a>
+    </div>     
+</div>
+
+{% endblock %}

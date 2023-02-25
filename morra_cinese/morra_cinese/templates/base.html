@@ -8,6 +8,9 @@
 
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet">
+
     <title>{% block title %}{% endblock %} · Game</title>
 
     {% block head %}
@@ -15,18 +18,10 @@
 </head>
 <body>
 
-    <nav>
+    {% block content %}
 
-        <ul>
-            <li class="logos">Morra Cinese</li>
-            <li><button class="nav-btn-play">Gioca</button></li>
-        </ul>
+    {% endblock %}
 
-    </nav>
-        {% block content %}
-
-        {% endblock %}
-
-    </body>
+</body>
     
 </html>

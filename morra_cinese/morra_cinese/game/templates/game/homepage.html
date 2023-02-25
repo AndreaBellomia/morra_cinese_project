@@ -9,44 +9,42 @@
 
 {% block content %}
 
-<div class="background-container"></div>
-
-<div class="container">
-    <h1>Sasso, Carta o Forbici</h1>
-    <p>Seleziona una delle 3 opzioni</p>
-    <p>e Prova a Vincere !!!</p>
-
-    <div class="rules">
-        <h2>Combinazioni Vincenti</h2>
-        <p>Sasso vince su Forbici</p>
-        <p>Carta vince su Sasso</p>
-        <p>Forbici vincono su Carta</p>
-    </div>
-
-    <div class="container-match-tierlist">
-        <h1>Top Game!</h1>
-
-        <div class="scroll-list">
-            {% for sezione in lista_sezioni %}
-                <div class="card-game">
-                    <div class="row">
-                        <h3>{{ sezione.user_name }}</h3>
-                        <p>{{ sezione.game_date|date:'d-m-Y' }}</p>
-                    </div>
-                    <div class="row">
-                        <h4>Win: {{ sezione.match_win }}</h4>
-                        <h4>Lost: {{ sezione.match_lost }}</h4>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-
-    <div class="container-btn">
-        <p>Gioca una Partita!</p>
-        <button>Gioca !</button>
+<div class="main-container">
+    <div class="title-cotainer">
+        <h1>Nuova Partita</h1>
     </div>
     
+        <form action="#" method="post">
+            <div class="input-form"> 
+                {% csrf_token %}
+                {{ form }}
+            </div>
+            <div class="button-container">
+                <button id="send-form">Gioca</button>
+            </div>
+        </form>
+            
 </div>
+<br>
+<br>
+<div class="main-container">
+    <div class="title-cotainer">
+        <h1>Regole del Gioco</h1>
+    </div>
+    <div class="custom-description">
+        <p >Seleziona una mossa tra: <strong>Sasso, Carta o Forbici!</strong> Prova a vincere sul tuo avversario usando una delle seguenti combinazioni.</p>
+
+    </div>
+    <div class="custom-description">
+        <ul class="description-list">
+            <li>Carta vince su Sasso</li>
+            <li>Sasso vince su Forbici</li>
+            <li>Forbici vince su Carta</li>
+        </ul>
+    </div>
+</div>
+
+<script src="{% static 'js/homepage.js' %}"></script>
+
 
 {% endblock %}

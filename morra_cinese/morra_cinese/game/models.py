@@ -1,8 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
-
 
 class Game(models.Model):
     """ Models For save a games """
@@ -13,3 +10,5 @@ class Game(models.Model):
     match_lost = models.IntegerField(default=0)
 
     game_date = models.DateTimeField(auto_now_add=True)
+
+    closed_game = models.BooleanField(default=False)

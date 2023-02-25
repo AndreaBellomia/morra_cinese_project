@@ -1,117 +1,104 @@
-::-webkit-scrollbar {
-    width: 0px;
+
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300;400;500;600;700&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    background-color: #fffef7;
 }
 
-.background-container{
-    position: absolute;
-    object-fit: contain;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-
-.container{
+.main-container{
+    background-color: #ffffff;
     position: relative;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-
-    margin: auto;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.container > h1 {
-    margin-top: 3rem;
-}
-
-.container > p {
-    margin: 0rem;
-}
-
-
-.rules > h2 {
-    margin:0rem;
-    margin-top: 3rem;
-}
-
-.rules > p {
-    margin: 0.5rem 0rem;
-}
-
-
-.container-btn{
-    margin-top: 2rem;
-}
-
-.container-btn > button {
-    font-size: 2rem;
-    background: rgb(86,215,144);
-    background: linear-gradient(87deg, rgba(86,215,144,1) 0%, rgba(11,207,0,1) 100%);
-    padding: 0.5rem 4rem;
-    color: white;
-    border-radius: 2rem;
-    border: 0px;
-}
-
-.container-btn > button:hover,
-.container-btn > button:focus {
-    font-size: 2rem;
-    background: rgb(69,172,115);
-    background: linear-gradient(87deg, rgba(69,172,115,1) 0%, rgba(9,161,0,1) 100%);
-    padding: 0.5rem 4rem;
-    color: white;
-    border-radius: 2rem;
-    border: 0px;
-}
-
-.container-match-tierlist > h1 {
-    margin: 0rem;
-    margin-top: 3rem;
-}
-
-.container-match-tierlist {
-    position: relative;
-    width: 100%;
-}
-
-.row {
-    display: flex;
-    justify-content: space-between;
-    padding: 0rem 2rem;
-    margin: 0rem;
-}
-.row > h4,
-.row > h3{
-    margin: 0.5rem 0rem;
-}
-
-
-.card-game{
-    position: relative;
-    transform: translate(50%, 0%);
-    margin: 0.5rem 0rem;
-    position: relative;
-    background-color: rgba(0, 0, 0, 0.5);
     width: 50%;
-    border-radius: 14px;
-    border: 1px solid white;
-    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    border-radius: 10px;
+    border: 2px solid rgb(68, 68, 68);
+    box-shadow: 6px 4px 2px rgb(170, 170, 170);
 }
 
-.scroll-list{
+.title-cotainer{
+    display: flex;
+    justify-content: center;
+    color: rgb(26, 26, 26);
+}
+
+.input-form{
+    position: relative;
+    left: 25%;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    margin: 0.5rem;
+}
+
+
+.input-field{
+    position: relative;
     display: flex;
     flex-direction: column;
-    max-height: 25rem;
-    overflow-y: scroll;
+    width: 50%;
+    background-color: #FBB95D !important;
+    padding: 0.5rem 0.5rem;
+    border-radius: 8px;
+    color: rgb(10, 10, 10);
+    border: 2px solid rgb(68, 68, 68);
+    box-shadow: 6px 4px 2px rgb(170, 170, 170);
+
+}
+
+button {
+    width: 20%;
+    height: 2.2rem;
+    margin: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 6px 4px 2px rgb(170, 170, 170);
+    border: 2px solid rgb(68, 68, 68);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: #00af6c;
+    color: white;
+    user-select: none;
+}
+
+button:hover {
+    background-color: #00925a;
+    cursor: pointer;
+}
+
+button:focus {
+    background-color: #00925a;
+    box-shadow: 2px 2px 2px rgb(170, 170, 170);
 }
 
 
 
-  
+
+.button-container{
+    display: flex;
+    justify-content: center;
+}
+
+.custom-description{
+    position: relative;
+    display: flex;
+    width: 70%;
+    left: 15%;
+    justify-content: center;
+
+}
+
+.description-list{
+    padding: 0rem;
+    list-style-type: none;
+}

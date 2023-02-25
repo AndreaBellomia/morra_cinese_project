@@ -1,0 +1,151 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block title %}New Game{% endblock %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/game/game.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<input type="hidden" id="gameId" value="{{ queryset.id }}">
+<div class="top-infobar-container">
+    <div class="btn-cotainer">
+        <a href="{% url 'homepage'%}" class="new-game" >Nuova Partita</a>
+        <a href="#" class="end-game" id="open-endgame-modal" >Termina</a>
+    </div>
+</div>
+    
+<div class="game-cotainer">
+
+    <div class="game-card">
+        <div class="item-header-infobard player">
+            <h2 id="playerName">{{ queryset.user_name }}</h2>
+        </div>
+
+        <embed class="icon-uman" src="{% static 'uman_icon.svg' %}">
+
+        <dir class="item-body-infobard">
+            <ul>
+                <li><p>Vinte:</p> <p class="win">{{ queryset.match_win }}</p></li>
+                <li><p>Pareggiate:</p> <p class="tie">{{ queryset.match_tie }}</p></li>
+                <li><p>Perse:</p> <p class="lost">{{ queryset.match_lost }}</p></li>
+            </ul>
+        </dir>
+        
+    </div>
+    
+    <div class="hand-card">
+        <embed class="icon-game left icon-reset" src="{% static 'hands_rock.svg' %}" id="umanChoiceRock" data-svg-id="0">
+        <embed class="icon-game left icon-reset" src="{% static 'heand_paper.svg' %}" id="umanChoicePaper" data-svg-id="1">
+        <embed class="icon-game left icon-reset" src="{% static 'hands_scissor.svg' %}" id="umanChoiceScissor" data-svg-id="2">
+    </div>
+
+    <div>
+        <h1 style="scale: 120%;">VS</h1>
+    </div>
+    
+    <div class="hand-card">
+        <embed class="icon-game right icon-reset" src="{% static 'hands_rock.svg' %}" id="aiChoiceRock" data-svg-id="0">
+        <embed class="icon-game right icon-reset" src="{% static 'heand_paper.svg' %}" id="aiChoicePaper" data-svg-id="1">
+        <embed class="icon-game right icon-reset" src="{% static 'hands_scissor.svg' %}" id="aiChoiceScissor" data-svg-id="2">
+    </div>
+
+    <div class="game-card">
+        <div class="item-header-infobard ai">
+            <h2>AI</h2>
+        </div>
+
+        <embed class="icon-robo" src="{% static 'ai_icon_robot.svg' %}">
+
+        <dir class="item-body-infobard">
+            <ul>
+                <li><p>Vinte:</p> <p class="lost">{{ queryset.match_lost }}</p></li>
+                <li><p>Pareggiate:</p> <p class="tie">{{ queryset.match_tie }}</p></li>
+                <li><p>Perse:</p> <p class="win">{{ queryset.match_win }}</p></li>
+            </ul>
+        </dir>
+    </div>
+
+</div>
+
+
+<div class="controller-cotainer">
+    <div class="instruction">
+        <div class="game-frame" id="gameFrame">
+            <h2 id="gameResultText"></h2>
+            
+            <button class="btn-game-frame" id="brtRetry">Rigioca</button>
+        </div>
+    </div>
+
+    <div class="controller-nav" >
+        <div class="container-svg" data-svg-uman="umanChoiceRock">
+            <img class="icon-hands" src="{% static 'hands_rock.png' %}" >
+        </div>
+        <div class="container-svg" data-svg-uman="umanChoicePaper">
+            <img class="icon-hands" src="{% static 'heand_paper.png' %}" >
+        </div>
+        <div class="container-svg" data-svg-uman="umanChoiceScissor">
+            <img class="icon-hands" src="{% static 'hands_scissor.png' %}" >
+        </div>
+    </div>
+</div>
+
+<div class="btn-help" id="open-modal">
+    <span class="material-symbols-outlined">
+        question_mark
+    </span>
+</div>
+
+<div style="display: none;">
+    {% csrf_token %}
+</div>
+
+<div class="modal-info-background" id="modal-info">
+    <div class="main-container">
+        <div class="title-cotainer">
+            <h1>Regole del Gioco</h1>
+        </div>
+
+        <div class="custom-description">
+            <p >Seleziona una mossa tra: <strong>Sasso, Carta o Forbici!</strong> Prova a vincere sul tuo avversario usando una delle seguenti combinazioni.</p>
+
+        </div>
+
+        <div class="custom-description">
+            <ul class="description-list">
+                <li>Carta vince su Sasso</li>
+                <li>Sasso vince su Forbici</li>
+                <li>Forbici vince su Carta</li>
+            </ul>
+        </div>
+
+        <div class="button-container">
+            <button id="close-modal">Chiudi</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal-info-background" id="endgame-modal">
+    <div class="main-container">
+        <div class="title-cotainer">
+            <h1>Termina Partita</h1>
+        </div>
+
+        <div class="custom-description">
+            <p >Sei sicuro di voler terminare la partita?</p>
+
+        </div>
+
+        <div class="button-container">
+            <button id="close-modal-endgame">Chiudi</button>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/game.js' %}"></script>
+
+{% endblock %}
