@@ -36,7 +36,7 @@ Successivamente lanciare il comando:
 
 .\venv\Scripts\activate
 
-pip -r requirements.txt
+pip install -r requirements.txt
 
 
 
